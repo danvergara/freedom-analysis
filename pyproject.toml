@@ -6,6 +6,9 @@ authors = ["Daniel Omar Vergara Pérez <daniel.omar.vergara@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+pandas = "^1.0.4"
+jupyter = "^1.0.0"
+xlrd = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
