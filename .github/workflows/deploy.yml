@@ -30,3 +30,12 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: danvergara/freedom-analysis
         tags: "latest,${{ env.RELEASE_VERSION }}"
+
+    # Deploy the current container image to my k8s cluster
+    - name: deploy to cluster
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
+      with:
+        args: set image --record deployment/freedom-analysis freedom-analysis=danvergara/freedom-analysis:${{ env.RELEASE_VERSION }}
