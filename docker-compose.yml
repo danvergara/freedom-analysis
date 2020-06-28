@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  freedom-dashboard:
+    build: .
+    ports:
+      - 8866:8866
